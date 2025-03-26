@@ -1,11 +1,92 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "./output.css";
 
-body {
-  @apply bg-pink-50 text-gray-800;
+/* Theme Styles with @layer for specificity */
+@layer base {
+  body {
+    @apply transition-colors duration-300;
+  }
+
+  body.dark {
+    @apply bg-gray-900 text-white;
+  }
+
+  body:not(.dark) {
+    @apply bg-pink-50 text-gray-800;
+  }
 }
 
+/* Navbar and Footer Hover */
 nav a:hover {
-  @apply text-pink-700;
+  @apply text-pink-700 dark:text-yellow-400;
+}
+
+footer a {
+  @apply text-gray-400 hover:text-pink-500 dark:hover:text-yellow-400;
+}
+
+/* Product Cards - Light mode and dark mode isolation */
+.product-card {
+  @apply bg-white shadow-lg rounded-lg overflow-hidden transform transition-all;
+}
+
+/* Dark Mode: Product Cards with Strong White Shadow */
+.dark .product-card {
+  @apply bg-gray-800 transition-all duration-300;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.4) !important; /* Strong white shadow */
+}
+
+/* Dark Mode: Larger White Shadow on Hover */
+.dark .product-card:hover {
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.7) !important; /* Larger white shadow on hover */
+}
+
+.product-card:hover {
+  @apply scale-105 shadow-2xl;
+}
+
+/* Ensure dark mode applies correctly for Hero section */
+.dark .hero h1 {
+  @apply text-yellow-400 !important;
+}
+
+.dark .hero p {
+  @apply text-gray-300 !important;
+}
+
+.hero h1 {
+  @apply text-yellow-400 !important;
+}
+
+.hero p {
+  @apply text-gray-800 !important;
+}
+
+/* Dark Mode: Product Card Text in Dark Color */
+.dark .product-card h2,
+.dark .product-card p,
+.dark .product-card img,
+.dark .product-card span {
+  @apply text-white !important; /* Dark text in dark mode */
+}
+
+/* Dark Mode: Input Field Text in Dark Color */
+.dark input {
+  @apply text-gray-900;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.4) !important; /* Dark input text in dark mode */
+}
+
+/* Dark Mode: Contact Page Styling */
+.dark .contact-page h2 {
+  @apply text-gray-950 !important; /* Bright yellow heading in dark mode */
+}
+
+.dark .contact-page p {
+  @apply text-gray-950 !important; /* Softer text color in dark mode */
+}
+
+.dark .navbar-card input {
+  @apply text-white !important;
 }
