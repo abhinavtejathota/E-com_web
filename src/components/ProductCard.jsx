@@ -11,7 +11,7 @@ const ProductCard = ({ product, addToCart }) => {
       <div className="p-4">
         <h2 className="text-2xl font-bold">{product.name}</h2>
         <p className="text-lg">{product.description}</p>
-        <p className="text-gray-950 font-bold">${product.price}</p>
+        <p className="text-gray-950 font-bold">₹{product.price}</p>
 
         {/* Add to Cart Button */}
         <button

@@ -19,10 +19,10 @@ const Cart = ({ cart, removeFromCart }) => {
                 className="w-full h-48 object-cover mb-4"
               />
               <h2 className="text-2xl font-bold">{item.name}</h2>
-              <p className="text-lg">Price: ${item.price}</p>
+              <p className="text-lg">Price: ₹{item.price}</p>
               <p className="text-lg">Quantity: {item.quantity}</p>
               <p className="text-lg font-bold">
-                Total: ${(item.price * item.quantity).toFixed(2)}
+                Total: ₹{(item.price * item.quantity).toFixed(2)}
               </p>
 
               <button
@@ -40,7 +40,7 @@ const Cart = ({ cart, removeFromCart }) => {
 
       <div className="text-center mt-8">
         <h2 className="text-3xl font-bold">
-          Total: ${getTotalPrice().toFixed(2)}
+          Total: ₹{getTotalPrice().toFixed(2)}
         </h2>
       </div>
     </div>
